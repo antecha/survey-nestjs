@@ -1,7 +1,12 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { QuestionsService } from './questions.service';
 
 @Controller('questions')
 export class QuestionsController {
   constructor(private questionsService: QuestionsService) {}
+
+  @Get()
+  getAllQuestions() {
+    this.questionsService.getAllQuestions();
+  }
 }
