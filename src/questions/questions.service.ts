@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-
+import { Question } from './question.model';
 @Injectable()
 export class QuestionsService {
-  private questions = [];
+  private questions: Question[] = [];
 
-  getAllQuestions() {
+  getAllQuestions(): Question[] {
     return this.questions;
   }
 }
