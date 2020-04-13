@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { QuestionsService } from './questions.service';
 import { Question } from './question.model';
 
@@ -9,5 +9,10 @@ export class QuestionsController {
   @Get()
   getAllQuestions(): Question[] {
     return this.questionsService.getAllQuestions();
+  }
+
+  @Post()
+  createQuestions(@Body('questions') questions: Question[]): Question[] {
+    return this.questionsService.createQuestions(questions);
   }
 }

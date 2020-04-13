@@ -1,9 +1,9 @@
 export interface Question {
   id: string;
-  survey_id: string[];
+  surveyID: string;
   title: string;
   type: QuestionType;
-  options?: { value: string; label: string }[];
+  options?: QuestionOption[];
 }
 
 export enum QuestionType {
@@ -13,4 +13,9 @@ export enum QuestionType {
   datePicker = 'datePicker',
   selectMultiple = 'selectMultiple',
   switch = 'switch',
+}
+
+export interface QuestionOption {
+  value: string;
+  label: string;
 }
