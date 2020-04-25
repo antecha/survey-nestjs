@@ -7,6 +7,8 @@ import {
   Delete,
   Param,
   Patch,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { QuestionService } from './question.service';
 import { Question } from './question.model';
@@ -22,6 +24,7 @@ export class QuestionController {
   }
 
   @Post()
+  @UsePipes(ValidationPipe)
   createQuestions(@Body() createQuestionDto: CreateQuestionDto): Question {
     return this.questionService.createQuestion(createQuestionDto);
   }
