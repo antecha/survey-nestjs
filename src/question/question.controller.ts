@@ -6,6 +6,7 @@ import {
   Query,
   Delete,
   Param,
+  Patch,
 } from '@nestjs/common';
 import { QuestionService } from './question.service';
 import { Question } from './question.model';
@@ -28,5 +29,13 @@ export class QuestionController {
   @Delete('/:id')
   deleteQuestion(@Param('id') id: string): void {
     this.questionService.deleteQuestion(id);
+  }
+
+  @Patch('/:id/title')
+  updateQuestionTitle(
+    @Param('id') id: string,
+    @Body('title') title: string,
+  ): Question {
+    return this.questionService.updateQuestionTitle(id, title);
   }
 }

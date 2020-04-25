@@ -34,4 +34,11 @@ export class QuestionService {
   deleteQuestion(id: string): void {
     this.questions = this.questions.filter(question => question.id !== id);
   }
+
+  updateQuestionTitle(id: string, title: string): Question {
+    const question = this.questions.find(question => question.id === id);
+    question.title = title;
+
+    return question;
+  }
 }
