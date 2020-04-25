@@ -16,7 +16,7 @@ export class QuestionService {
     return this.questions;
   }
 
-  createQuestions(createQuestionDto: CreateQuestionDto): Question {
+  createQuestion(createQuestionDto: CreateQuestionDto): Question {
     const { title, type, surveyID } = createQuestionDto;
 
     const newQuestion: Question = {
@@ -29,5 +29,9 @@ export class QuestionService {
     this.questions.push(newQuestion);
 
     return newQuestion;
+  }
+
+  deleteQuestion(id: string): void {
+    this.questions = this.questions.filter(question => question.id !== id);
   }
 }
