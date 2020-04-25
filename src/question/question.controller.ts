@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Query } from '@nestjs/common';
 import { QuestionService } from './question.service';
 import { Question } from './question.model';
 import { CreateQuestionDto } from './dto/createQuestion.dto';
@@ -8,8 +8,8 @@ export class QuestionController {
   constructor(private questionService: QuestionService) {}
 
   @Get()
-  getAllQuestions(): Question[] {
-    return this.questionService.getAllQuestions();
+  getAllQuestions(@Query() query): Question[] {
+    return this.questionService.getAllQuestions(query);
   }
 
   @Post()

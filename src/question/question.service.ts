@@ -7,7 +7,12 @@ import { CreateQuestionDto } from './dto/createQuestion.dto';
 export class QuestionService {
   private questions: Question[] = [];
 
-  getAllQuestions(): Question[] {
+  getAllQuestions(query?: { survey_id: string }): Question[] {
+    if (query.survey_id) {
+      return this.questions.filter(
+        question => question.surveyID === query.survey_id,
+      );
+    }
     return this.questions;
   }
 
