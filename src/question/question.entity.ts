@@ -15,6 +15,6 @@ export class Question extends BaseEntity {
   @Column()
   type: QuestionType;
 
-  @Column()
+  @Column("text",{array:true})
   options: QuestionOption[];
 }
